@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'names.dart';
+import 'package:word_generator/word_generator.dart';
 
 void main() {
   print(' Домашне завдання номер 8');
@@ -7,6 +8,8 @@ void main() {
   runTask1();
   print(' ------------Завдання номер 2------');
   runTask2();
+  print(' ------------Завдання номер 3------');
+  runTask3();
 }
 
 void runTask1() {
@@ -50,6 +53,23 @@ void runTask2() {
   print('Імена, які є лише в першому списку: $onlyInFirst');
   var onlyInSecond = uniqueNames2.difference(uniqueNames1);
   print('Імена, які є лише в другому списку: $onlyInSecond');
-
+}
+runTask3(){
+  final wordGenerator = WordGenerator();
+   List<String> nounsList = wordGenerator.randomNouns(50);
+   //print(nounsList);
+   Map<String, int> nounsMap = {};
+  for (var word in nounsList) {
+    nounsMap[word] = word.length;
+  }
+  //print('Карта слів та їх довжини: $nounsMap');
+  Map<String, int> tempNouns = {};
+  nounsMap.forEach((word, length) {
+    if (length % 2 == 0) {
+      tempNouns[word] = length;
+    }
+  });
+  //print('Тільки слова з парною довжиною: $tempNouns');
+  print('Ключі зі tempNouns: ${tempNouns.keys.toList()}');
 
 }
