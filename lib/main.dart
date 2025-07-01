@@ -1,9 +1,12 @@
 import 'dart:math';
+import 'names.dart';
 
 void main() {
   print(' Домашне завдання номер 8');
   print(' ------------Завдання номер 1------');
   runTask1();
+  print(' ------------Завдання номер 2------');
+  runTask2();
 }
 
 void runTask1() {
@@ -35,5 +38,18 @@ void runTask1() {
     }
   }
   print('Довжина списка: ${temp.length}');
-  
+}
+
+void runTask2() {
+  var uniqueNames1 = Set.from(ukrainianNames1);
+  var uniqueNames2 = Set.from(ukrainianNames2);
+  var commonNames = uniqueNames1.intersection(uniqueNames2);
+  print('Спільні імена: $commonNames');
+  print('Кількість спільних імен: ${commonNames.length}');
+  var onlyInFirst = uniqueNames1.difference(uniqueNames2);
+  print('Імена, які є лише в першому списку: $onlyInFirst');
+  var onlyInSecond = uniqueNames2.difference(uniqueNames1);
+  print('Імена, які є лише в другому списку: $onlyInSecond');
+
+
 }
